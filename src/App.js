@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.scss';
-import { Query, Builder, Preview } from './RuleBuilder'
+import { Query, Builder, Preview, Serialize } from './RuleBuilder'
 import { defaultConfig} from './config'
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         }
         }
       </Query>
+      <Serialize />
     </div>
   );
 }
