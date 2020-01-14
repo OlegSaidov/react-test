@@ -17,12 +17,16 @@ export class Query extends Component {
     }
   })(this.props);
 
-  componentWillReceiveProps (nextProps) {
+
+
+  componentWillReceiveProps(nextProps) {
     if (this.props.defaultTree === nextProps.defaultTree) {
       return
     }
+
+
     this.setState({
-      tree:  reducer(nextProps.defaultTree || defaultRoot(nextProps.config), undefined)
+      tree: reducer(nextProps.defaultTree || defaultRoot(nextProps.config), undefined)
     })
   }
 
@@ -37,17 +41,20 @@ export class Query extends Component {
     }, actions)
   })(this.props)
 
+
+
   update = action => {
     this.setState(state => ({
       tree: reducer(state.tree, action)
     }))
   };
 
-  render () {
+  render() {                                /*passing parameters to  Render function in App.js*/
     return this.props.children(
-      this.props.config,
-      this.state.tree,
-      this.actions,
-    )
+              this.props.config,          // passing down to Render function argument the defaultConfig object from up its parent the App.js
+              this.state.tree,             // passing down the tree varible from state?
+              this.actions,               //passing actions variable down
+           )
+    
   }
 }
