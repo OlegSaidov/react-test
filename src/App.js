@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
 import { Query, Builder, Preview, Serialize } from './RuleBuilder'
 import { defaultConfig} from './config'
@@ -20,12 +21,13 @@ function App() {
               <div className="query-builder">
                 <Builder config={config} tree={state} actions={actions}/>
               </div>
+              <Serialize state={state}/>
             </Fragment>
           )
         }
         }
       </Query>
-      <Serialize />
+      
     </div>
   );
 }
