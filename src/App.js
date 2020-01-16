@@ -21,7 +21,7 @@ function App() {
               <div className="query-builder">
                 <Builder config={config} tree={state} actions={actions}/>
               </div>
-              <Serialize state={state}/>
+              <Serialize tree={state} />
             </Fragment>
           )
         }

@@ -1,0 +1,82 @@
+{
+    "type": "group",
+    "id": "00449872-2631-4798-ab6e-4dac7668d85f",
+    "children": {
+
+        "538db44d-406c-4713-8862-dad3b85f38e1": {
+            "type": "group",
+            "id": "538db44d-406c-4713-8862-dad3b85f38e1",
+            "properties": {
+                "conjunction": "Or"
+            },
+            "children": {
+                "ecf96013-302d-4733-8e35-46f1a5aa592d": {
+                    "type": "rule",
+                    "id": "ecf96013-302d-4733-8e35-46f1a5aa592d",
+                    "properties": {
+                        "field": "name",
+                        "operator": "Contains",
+                        "value": [
+                            "banana"
+                        ],
+                        "operatorOptions": {},
+                        "valueOptions": [
+                            {}
+                        ]
+                    }
+                },
+
+
+                "5da7ed8b-8b7d-4831-aa61-440a540094a9": {
+                    "type": "rule",
+                    "id": "5da7ed8b-8b7d-4831-aa61-440a540094a9",
+                    "properties": {
+                        "field": "name",
+                        "operator": "Contains",
+                        "value": [
+                            "Mandarin"
+                        ],
+                        "operatorOptions": {},
+                        "valueOptions": [
+                            {}
+                        ]
+                    }
+                }
+            }
+        },
+
+
+        "f9d14626-afb6-4073-bef2-6e21c221cacd": {
+            "type": "rule",
+            "id": "f9d14626-afb6-4073-bef2-6e21c221cacd",
+            "properties": {
+                "field": "color",
+                "operator": "Equals",
+                "value": [
+                    "yellow"
+                ],
+                "operatorOptions": {},
+                "valueOptions": [
+                    {}
+                ]
+            }
+        }
+    },
+
+
+    "properties": {
+        "conjunction": "And"
+    }
+}
+
+var map = Immutable.Map({
+    new title: "item 1",
+    title2: "item 2",
+    title3: "item 3"
+  });
+  
+  map = map.mapKeys(k => {
+    if (k === "title1") 
+      return "newTitle";
+    return k;
+  });
