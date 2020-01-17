@@ -1,19 +1,43 @@
-import React, { Component } from 'react';
+import React, { useState, } from 'react'
+import { Button, Modal, Container } from 'react-bootstrap'
+import jsonString from '../utils/jsonString'
+import PropTypes from 'prop-types'
 
-export class Serialize extends Component {
+export function Serialize(props) {
 
-    logState(){
-        console.log(this.props.state);
-      }
+    const [show, setShow] = useState(false);
+    const rawState = props.tree;
+    
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const serialize = (rawState) => jsonString(rawState);
 
-    render() {
-       
-        return (
-            <div>
-                <button onClick={this.logState()} className='btn btn-primary shadow'>Serialize</button>
-            </div>
+    return (
+        <Container fluid={true}>
+            <Button variant="primary" onClick={handleShow}>
+                Serialize
+            </Button>
 
-        )
-    }
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Serilized Data</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <code className="query-preview">
+                    {serialize(rawState)}
+                    </code>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+            </Button>
+                </Modal.Footer>
+            </Modal>
+        </Container>
+    );
+}
+
+Serialize.propTypes = {
+    tree: PropTypes.object
 }
 

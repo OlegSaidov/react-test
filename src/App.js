@@ -1,28 +1,30 @@
-import React, { Fragment } from 'react'; // Importing react and Fragment named export
-import './App.scss'; //importing App.scss
-import { Query, Builder, Preview, Serialize } from './RuleBuilder' //importing compoents from ./Rulebuilder, indicating export in Rulbuilder/index.js
-import { defaultConfig} from './config' //importing default configuration file, the initial state
+import React, { Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.scss';
+import { Query, Builder, Preview, Serialize } from './RuleBuilder'
+import { defaultConfig} from './config'
 
-function App() { //App.js rendered with index.js into into ../public/index.html
-  return (//functional component
+function App() {
+  return (
     <div className="App">
-      <Query config={defaultConfig}>               {/*Query component is getting defaultConfig object as a prop  */}
-        {(config, state, actions) => {             /*Render Function passed into Query component's render,  with 3 parameters, argumentspassed from Query component*/
+      <Query config={defaultConfig}>
+        {(config, state, actions) => {
           
           return (
-            <Fragment>                                        {/*Just a container as a div element*/}
-              <Preview config={config} tree={state}>     {/* Preview conponent is getting config and state arguments from Query component as a prop*/}
-                {query => (                                    //This yet another render function, Preview component is processing its own props config and state with queryString.js and passing the result to Render function as a paramenter.
+            <Fragment>
+              <Preview config={config} tree={state}>
+                {query => (
                   
                   <code className="query-preview">
-                    {query || 'Use the builder below to create a search query.'} {/*Here is shown what is coming back from queryString*/}
+                    {query || 'Use the builder below to create a search query.'}
                   </code>
                 )}
               </Preview>
               <div className="query-builder">
-                <Builder config={config} tree={state} actions={actions}/> {/*This is Builder component, still within the 1 st render function, it is getting the 3 arguments passed by the Query component*/}
-             </div>
-             <Serialize state={state}/>
+                <Builder config={config} tree={state} actions={actions}/>
+                
+              </div>
+              <Serialize tree={state} />
             </Fragment>
              
           )
