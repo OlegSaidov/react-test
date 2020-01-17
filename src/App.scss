@@ -18,14 +18,14 @@
 /******************************************************************************/
 /** COMMON ********************************************************************/
 /******************************************************************************/
-.query-builder, .query-preview {
+.query-builder, .query-preview, .serialize {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.25;
   margin: 1rem;
 }
 
-.query-preview {
+.query-preview, .serialize {
   font-size: 14px;
   background: rgba(250, 240, 210, 0.5);
   border: 1px solid #DCC896;
@@ -49,6 +49,8 @@
   padding: 10px;
   position: relative;
 }
+
+
 
 /******************************************************************************/
 /** GROUP *********************************************************************/
@@ -206,3 +208,25 @@
   background-color: #d9534f;
   border-color: #d43f3a;
 }
+/******************************************************************************/
+/** Serialize Button ********************************************************************/
+/******************************************************************************/
+.btn-serialize {
+  background-color: #3276b1;
+  border-color: #285e8e;
+
+  &:hover{
+    background-color: #428bca;
+    border-color: #357ebd;
+  }
+  &:focus{
+    background-color: #428bca;
+    border-color: #357ebd;
+  }
+  &:visited{
+    background-color: #428bca;
+    border-color: #357ebd;
+  }
+}
+
+
