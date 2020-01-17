@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextWidget, SelectWidget, DateWidget } from './RuleBuilder'
+import { TextWidget, SelectWidget, DateWidget, SliderWidget } from './RuleBuilder'
 
 
 export const defaultConfig = {
@@ -26,6 +26,13 @@ export const defaultConfig = {
       label: 'Date',
       widget: 'date',
       operators: ['Equals']
+    },
+    slider: {
+      label: 'Slider',
+      widget: 'slider',
+      operators: [
+        'Equals', 'GreaterThan', 'LessThan'
+      ]
     },
     color: {
       label: 'Color',
@@ -63,6 +70,16 @@ export const defaultConfig = {
       cardinality: 1,
       value: (value, field) => `${field}>${value.first()}`
     },
+    GreaterThan: {
+      label: 'Greater Than',
+      cardinality: 1,
+      value: (value, field) => `${field}>${value.first()}`
+    },
+    LessThan: {
+      label: 'Less Than',
+      cardinality: 1,
+      value: (value, field) => `${field}<${value.first()}`
+    },
     Less: {
       label: 'Less',
       cardinality: 1,
@@ -98,10 +115,17 @@ export const defaultConfig = {
     },
     date: {
       factory: props => <DateWidget {...props} />
+    },
+    slider: {
+      factory: props => <SliderWidget {...props} />
     }
   },
   settings: {
-    maxNesting: 5
+    maxNesting: 5,
+    sliderRange: {
+      min:0,
+      max:100
+    }
   }
 }
 
